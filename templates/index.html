@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1> Subcutaneous & Visceral Fat - Model 1 </h1>
+  <h3> Enter the following information to predict subcutaneous and visceral fat: </h3>
+
+  <form action="{{url_for('predict')}}"method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="age">Age</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="Age" required="required">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="sex">Gender</label>
+      </div>
+      <div class="col-75">
+        <select id="sex" name="sex" required="required">
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="waist_cm">Waist circumference (cm)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="waist_cm" name="waist_cm" placeholder="Waist circumference (cm)" required="required">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="hip_cm">Hip circumference (cm)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="hip_cm" name="hip_cm" placeholder="Hip circumference (cm)" required="required">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="bmi">Body mass index (BMI)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="bmi" name="bmi" placeholder="Body mass index" required="required">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="weight_kg">Weight (kg)</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="weight_kg" name="weight_kg" placeholder="Weight (kg)" required="required">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="ancestry">Ancestry</label>
+      </div>
+      <div class="col-75">
+        <select id="ancestry" name="ancestry" required="required">
+          <option value="AFR">AFR</option>
+          <option value="AMR">AMR</option>
+          <option value="CSA">CSA</option>
+          <option value="EAS">EAS</option>
+          <option value="EUR">EUR</option>
+          <option value="MID">MID</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+      <input type="submit" value="Predict">
+    </div>
+  </form>
+
+  <p><strong>{{ sub_prediction_text }}</strong></p>
+  <p><strong>{{ vis_prediction_text }}</strong></p>
+
+</div>
+
+</body>
+
+</html>
